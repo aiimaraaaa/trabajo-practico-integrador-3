@@ -6,7 +6,7 @@ export const authMiddleware = (req, res, next) => {
     if (!token) return res.status(401).json({ msg: "No autenticado" });
 
     const decoded = verifyToken(token);
-    req.user = decoded; // { id, role }
+    req.user = decoded;
     next();
   } catch (error) {
     console.log(error);

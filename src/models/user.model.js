@@ -6,14 +6,12 @@ const userSchema = new Schema(
     email: { type: String, required: true, unique: true, trim: true, lowercase: true },
     password: { type: String, required: true },
     role: { type: String, enum: ["user", "admin"], default: "user" },
-    // relacion 1:1 embebida
     profile: {
       firstName: { type: String, required: true },
       lastName: { type: String, required: true },
       birthDate: { type: Date },
       phone: { type: String },
     },
-    // eliminación lógica
     deletedAt: { type: Date, default: null },
   },
   {
@@ -24,7 +22,6 @@ const userSchema = new Schema(
   }
 );
 
-// Virtual Populate: Eventos organizados por el usuario
 userSchema.virtual("events", {
   ref: "Event",
   localField: "_id",

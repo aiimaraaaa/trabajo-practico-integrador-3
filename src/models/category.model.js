@@ -13,7 +13,6 @@ const categorySchema = new Schema(
   }
 );
 
-// Virtual Populate: Eventos que tienen esta categoría
 categorySchema.virtual("events", {
   ref: "Event",
   localField: "_id",

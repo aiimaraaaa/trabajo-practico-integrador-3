@@ -9,16 +9,12 @@ const eventSchema = new Schema(
     capacity: { type: Number, required: true, min: 1 },
     price: { type: Number, default: 0, min: 0 },
     status: { type: String, enum: ["scheduled", "cancelled", "finished"], default: "scheduled" },
-    
-    // relacion 1:1 embebida
     location: {
       venue: { type: String, required: true },
       address: { type: String, required: true },
       city: { type: String, required: true },
     },
-    // relacion 1:N (Organizador)
     organizer: { type: Types.ObjectId, ref: "User", required: true },
-    // relación N:M (Categorías)
     categories: [{ type: Types.ObjectId, ref: "Category" }],
   },
   { timestamps: true, versionKey: false }
