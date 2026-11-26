@@ -11,6 +11,8 @@ const categorySchema = new Schema(
     toJSON: { virtuals: true },
     toObject: { virtuals: true },
   }
+
+  // cover: { type: coverSchema, required: true },
 );
 
 categorySchema.virtual("events", {
