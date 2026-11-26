@@ -16,6 +16,9 @@ const eventSchema = new Schema(
     },
     organizer: { type: Types.ObjectId, ref: "User", required: true },
     categories: [{ type: Types.ObjectId, ref: "Category" }],
+
+    // TODO 3: songs (array de ObjectId con referencia (`ref`) al modelo Song).
+    // songs: [{ type: Schema.Types.ObjectId, ref: "Song" }],
   },
   { timestamps: true, versionKey: false }
 );
