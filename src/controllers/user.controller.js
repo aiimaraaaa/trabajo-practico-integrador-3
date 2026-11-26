@@ -50,6 +50,21 @@ export const deleteUser = async (req, res) => {
     const { id } = req.params;
 
 
+
+    // song = await Song.findByIdAndDelete(id);
+
+    // if (song) {
+    //   const playlists = await Playlist.find({ songs: song._id });
+
+    //   for (const playlist of playlists) {
+    //     playlist.songs = playlist.songs.filter(
+    //       (songId) => songId.toString() !== song._id.toString(),
+    //     );
+    //     await playlist.save();
+    //   }
+    // }
+
+
     await EventModel.deleteMany({ organizer: id });
 
 
