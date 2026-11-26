@@ -14,6 +14,14 @@ export const createCategoryValidation = [
   body("description")
     .optional()
     .isLength({ max: 200 }).withMessage("La descripción no puede superar los 200 caracteres"),
+    // .bail()
+    // .custom(async (value) => {
+    //   const song = await Song.findOne({ title: value });
+    //   if (song) {
+    //     throw new Error("Ya existe una canción con ese título");
+    //   }
+    //   return true;
+    // }),
 ];
 
 export const updateCategoryValidation = [
